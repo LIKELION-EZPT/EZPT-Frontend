@@ -77,6 +77,7 @@ jobs:
           host: ${{ secrets.NCLOUD_HOST }}
           username: ${{ secrets.NCLOUD_USERNAME }}
           key: ${{ secrets.NCLOUD_KEY }}
+          password: ${{ secrets.NCLOUD_PASSWORD }}
           script: |
             docker pull ${{ secrets.FRONT_DOCKER_USERNAME }}/ezpt-app-react:latest
             docker stop ezpt-app-react
