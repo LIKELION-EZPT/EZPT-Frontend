@@ -72,7 +72,7 @@ jobs:
           run: |
             echo "runing the docker image"
       
-      - name: Connect to AWS EC2 with SSH
+      - name: Connect to Ncloud Server with SSH
         uses: appleboy/ssh-action@v0.1.8
         with:
           host: ${{ secrets.NCLOUD_HOST }}
