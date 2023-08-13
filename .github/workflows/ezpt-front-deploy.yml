@@ -84,3 +84,4 @@ jobs:
             docker rm ezpt-app-react
             docker run -d -p 3000:3000 --name=ezpt-app-react ${{ secrets.FRONT_DOCKER_USERNAME }}/ezpt-app-react:latest
     
+    
