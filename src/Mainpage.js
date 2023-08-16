@@ -1,69 +1,100 @@
-import React, { useState } from 'react';
-import './Mainpage.css';
+import { useState } from "react";
+import { Configuration, OpenAIApi } from "openai";
+import "./Mainpage.css";
 
-function Mainpage() {
-    const [combinedText, setCombinedText] = useState("");
-    const [chatResult, setChatResult] = useState("");
-    
-    async function inputText() {
-        const input1 = document.getElementById('input1').value;
-        const input2 = document.getElementById('input2').value;
-        const input3 = document.getElementById('input3').value;
-      
-        const resultText = `${input1} ${input2} ${input3}`;
-        setCombinedText(resultText);
-        console.log(combinedText);
+const ChatbotApp = () => {
+  const configuration = new Configuration({
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+  });
 
-        try {
-          const response = await fetch('./generate', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({combinedText:combinedText})
-          });
-          const data = await response.json();
-          console.log(data);
-          if (data.choices && data.choices.length > 0) {
-            setChatResult(data.text);
-          } else {
-            setChatResult('No response from API');
-          }
-        } catch (e) {
-          console.log(e);
-          setChatResult('API request failed.');
-        }
+  const openai = new OpenAIApi(configuration);
+  const [input1, setInput1] = useState("");
+  const [input2, setInput2] = useState("");
+  const [input3, setInput3] = useState("");
+  const [apiResponse, setApiResponse] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const promptValue = `${input1} ${input2} ${input3}`;
+
+    try {
+      const result = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: promptValue,
+        temperature: 0.5,
+        max_tokens: 100,
+      });
+
+      setApiResponse(result.data.choices[0].text);
+    } catch (e) {
+      setApiResponse("Something is going wrong, Please try again.");
     }
-    return (
-        <div className="Mainpage">
-            <div>
-                <nav>
-                    nav
-                </nav>
-                <div className="SideBar">
-                    sidebar
-                </div>
-                <div className="Main">
-                    <div className="Left">
-                        <div className="Input1">
-                            <input id='input1' type="text" className="input1" placeholder='예시1'/>
-                        </div>
-                        <div className="Input2">
-                            <input id='input2' type="text" className="input2" placeholder='예시2'/>
-                        </div>
-                        <div className="Input3">
-                            <input id='input3' type="text" className="input3" placeholder='예시3'/>
-                        </div>
-                        <button onClick={inputText}>send</button>
-                        <p id="result">{combinedText}</p>
-                    </div>
-                    <div className="Right">
-                        {chatResult}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
+    setLoading(false);
+  };
 
-export default Mainpage;
+  return (
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="Input1">Input 1:</label>
+            <textarea
+              className="input1"
+              type="text"
+              value={input1}
+              placeholder="Please ask to openai"
+              onChange={(e) => setInput1(e.target.value)}
+            ></textarea>
+          </div>
+          <div>
+            <label htmlFor="Input2">Input 2:</label>
+            <textarea
+              className="input2"
+              type="text"
+              value={input2}
+              placeholder="Please ask to openai"
+              onChange={(e) => setInput2(e.target.value)}
+            ></textarea>
+          </div>
+          <div>
+            <label htmlFor="Input3">Input 3:</label>
+            <textarea
+              className="input3"
+              type="text"
+              value={input3}
+              placeholder="Please ask to openai"
+              onChange={(e) => setInput3(e.target.value)}
+            ></textarea>
+          </div>
+          <button disabled={loading} type="submit">
+            {loading ? "Generating..." : "Generate"}
+          </button>
+        </form>
+      </div>
+      {apiResponse && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <pre>
+            <strong>API response:</strong>
+            {apiResponse}
+          </pre>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default ChatbotApp;
