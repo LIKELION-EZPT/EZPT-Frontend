@@ -1,0 +1,145 @@
+.all{
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+}
+
+.body{
+    display:flex;
+    width:100%;
+    height:90%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar{
+    display: flex;
+    width: auto;
+    height:60px;
+    padding:0 30px;
+    align-items: center;
+    justify-content: flex-end;
+
+    .navlist{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+}
+
+.sidebar{
+    margin: 0 15px;
+    width: 200px;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border-right: 0.695px solid var(--black-10, rgba(0, 0, 0, 0.10));
+    background: #F8F8F8;
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+
+    .chatbox{
+        display: flex;
+        width: 180px;
+        height: 33px;
+        padding: var(--gap-8, 5.564px) var(--gap-16, 11.128px);
+        justify-content: center;
+        align-items: flex-start;
+        gap: var(--gap-8, 5.564px);
+        flex-shrink: 0;
+        border-radius: var(--corner-radius-12, 8.346px);
+        background: rgba(69, 177, 255, 0.84);
+        text-align:center;
+        align-items:center;
+    }
+
+    .newchat{
+        display: flex;
+        padding: 8px 8px 4px 4px;
+        align-items: center;
+        gap: 8.4px;
+        align-self: stretch;
+        width:180px;
+        height:auto;
+        margin:10px 0 0 0;
+
+        .plus{
+            width: 10px;
+            height: 10px;
+        }
+
+        .chatimg{
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .separator{
+        width: auto;
+        background: #B9DFFB;
+        margin:0;
+        height:1px;
+    }
+
+}
+
+.chat{
+    border-radius: 20px;
+    background: rgba(69, 222, 255, 0.10);
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    margin:0 15px;
+    display:flex;
+    flex: auto;
+    padding:15px;
+    
+    .question{
+        width: auto;
+        flex-direction: column;
+        height: 100%;
+        display:flex;
+        flex: 1;
+        
+        .first{
+            background: white;
+            width: 100%;
+            height: 160px;
+            border: 1px solid #B9DFFB;
+            border-radius: 20px;
+        }
+        .second{
+            background: white;
+            width: 100%;
+            height: 160px;
+            border: 1px solid #B9DFFB;
+            border-radius: 20px;
+            margin: 15px 15px 0 0;
+        }
+        .third{
+            background: white;
+            width: 100%;
+            height: 160px;
+            border: 1px solid #B9DFFB;
+            border-radius: 20px;
+            margin: 15px 0 0 0;
+        }
+    }
+
+    .answer{
+        display:flex;
+        flex: 2;
+        flex-direction: column;
+        height: 100%;
+        background: white;
+        border: 1px solid #B9DFFB;
+        border-radius: 20px;
+    }
+
+    .separator2{
+        width: 1px;
+        background: #B9DFFB;
+        margin:0 20px;
+    }
+}
