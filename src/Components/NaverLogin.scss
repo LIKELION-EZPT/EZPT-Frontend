@@ -1,0 +1,28 @@
+.naverLogin{
+    display: none;
+}
+
+.naverBtn{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    height: 3rem;
+    background-color: #03c75a;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.naverIcon{
+    width: 2rem;
+    height: 2rem;
+    background-size: 30px;
+}
+
+.naverTitle{
+    
+    color : white;
+    font-weight: 400;
+    font-size: 14px;
+    
+
+}
