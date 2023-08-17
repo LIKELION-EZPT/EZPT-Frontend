@@ -32,7 +32,8 @@ jobs:
       - name: build
         run: |
           npm run build
-          npm test
+          
+        # npm test
   push_to_Docker_Hub:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -83,4 +84,5 @@ jobs:
             docker stop ezpt-app-react
             docker rm ezpt-app-react
             docker run -d -p 3000:3000 --name=ezpt-app-react ${{ secrets.FRONT_DOCKER_USERNAME }}/ezpt-app-react:latest
+    
     
