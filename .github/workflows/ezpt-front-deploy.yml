@@ -27,11 +27,11 @@ jobs:
 
       # install applicaion dependencies
       - name: Install dependencies
-        run: |
+        run: 
           npm install
       # build and test the apps
       - name: build
-        run: |
+        run: 
           npm run build
           npm test
   push_to_Docker_Hub:
