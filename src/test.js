@@ -3,6 +3,9 @@ import "./MainPage.scss";
 import { OpenAIApi, Configuration } from "openai";
 import chatimg from "./chat.png";
 import plusimg from "./plus.png";
+import promptOneData from "./JsonFile/promptOne.json";
+import promptTwoData from "./JsonFile/promptTwo.json";
+import promptThreeData from "./JsonFile/promptThree.json";
 
 const KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
@@ -73,12 +76,39 @@ const MainPage =() => {
         console.log(chatList);
     };
 
+    const populateTextarea1 = () => {
+        setInput1(promptOneData.prompt1);
+        setInput2(promptOneData.prompt2);
+        setInput3(promptOneData.prompt3);
+    };
+
+    const populateTextarea2 = () => {
+        setInput1(promptTwoData.prompt1);
+        setInput2(promptTwoData.prompt2);
+        setInput3(promptTwoData.prompt3);
+    };
+
+    const populateTextarea3 = () => {
+        setInput1(promptThreeData.prompt1);
+        setInput2(promptThreeData.prompt2);
+        setInput3(promptThreeData.prompt3);
+    };
+      
     return(
         <div className="all">
             <div className="navbar">
                 <div className="navlist">
                     <text className="home">HOME</text>
                     <text className="about">ABOUT</text>
+                    <button className="promptcall1" onClick={populateTextarea1}>
+                    one
+                    </button>
+                    <button className="promptcall2" onClick={populateTextarea2}>
+                    two
+                    </button>
+                    <button className="promptcall3" onClick={populateTextarea3}>
+                    three
+                    </button>
                 </div>
             </div>
             <div className="body">
@@ -101,7 +131,7 @@ const MainPage =() => {
                         <div>
                             <label htmlFor="Input1">Input 1:</label>
                             <textarea
-                            className="input1"
+                            className="input1area"
                             type="text"
                             value={input1}
                             placeholder="Please ask to openai"
@@ -111,7 +141,7 @@ const MainPage =() => {
                         <div>
                             <label htmlFor="Input2">Input 2:</label>
                             <textarea
-                            className="input2"
+                            className="input2area"
                             type="text"
                             value={input2}
                             placeholder="Please ask to openai"
@@ -121,7 +151,7 @@ const MainPage =() => {
                         <div>
                             <label htmlFor="Input3">Input 3:</label>
                             <textarea
-                            className="input3"
+                            className="input3area"
                             type="text"
                             value={input3}
                             placeholder="Please ask to openai"
@@ -136,21 +166,6 @@ const MainPage =() => {
                         </button>
                     </form>
                     <div className="separator2"></div>
-                    {apiResponse && (
-                        <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
-                        >
-                        <pre>
-                            <strong>API response:</strong>
-                            <div>
-                            {apiResponse}
-                            </div>
-                        </pre>
-                        </div>
-                    )}
                     <div className="answer">
                         <div className="answerlist">
                         Chat List
