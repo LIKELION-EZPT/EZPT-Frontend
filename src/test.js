@@ -162,7 +162,6 @@ const MainPage = () => {
           <div className='separator2'></div>
           <div className='answer'>
             <div className='answerlist'>
-              Chat List
               {chatList.map((entry, index) => (
                 <div key={index}>
                   <div className='balloon-left'>{entry.prompt}</div>
