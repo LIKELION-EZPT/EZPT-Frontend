@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+//import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import ChatbotApp from './Mainpage';
+//import ChatbotApp from './Mainpage';
+import  MainPage  from './test';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ChatbotApp />
+    <MainPage />
   </React.StrictMode>
 );
 
