@@ -4,7 +4,6 @@ import { OpenAIApi, Configuration } from "openai";
 import chatimg from "./chat.png";
 import plusimg from "./plus.png";
 import sendimg from "./send.png";
-import Sidebar from './Sidebar';
 
 const KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
@@ -43,7 +42,7 @@ const MainPage =() => {
             model: "text-davinci-003",
             prompt: promptValue,
             temperature: 0.5,
-            max_tokens: 100,
+            max_tokens: 1000,
         });
 
         setApiResponse(result.data.choices[0].text);
@@ -114,13 +113,13 @@ const MainPage =() => {
                     <form onSubmit={handleSubmit} className="question">
                         <div className="input1">
                             <label htmlFor="Input1" className="input1name">GPT 역할</label>
-                            <textarea
-                            className="input1_text"
-                            type="text"
-                            value={input1}
-                            placeholder="Please ask to openai"
-                            onChange={(e) => setInput1(e.target.value)}
-                            ></textarea>
+                                <textarea
+                                className="input1_text"
+                                type="text"
+                                value={input1}
+                                placeholder="Please ask to openai"
+                                onChange={(e) => setInput1(e.target.value)}
+                                ></textarea>
                         </div>
                         <div className="input2">
                             <label htmlFor="Input2" className="input2name">예시 or 맥락</label>
