@@ -1,0 +1,294 @@
+/* Noto Sans CJK KR 폰트를 로드 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* 나머지 CSS 코드 */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 지정 */
+}
+
+
+.all{
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+}
+
+.body{
+    border-top: 2px solid #B9DFFB;
+    display:flex;
+    width:100%;
+    height:90%;
+    flex-direction: row;
+    justify-content: center;
+    box-sizing:border-box;
+
+}
+
+.navbar{
+    display: flex;
+    width: auto;
+    height:60px;
+    padding:0 30px;
+    align-items: center;
+    justify-content: flex-end;
+
+    .navlist{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+}
+
+.sidebar{
+    width: 200px;
+    height: 100%;
+    border-right: 2px solid #B9DFFB;
+    background: rgba(69, 222, 255, 0.10);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    position: relative;
+
+    .chatbox{
+        display: flex;
+        width: 180px;
+        height: 33px;
+        padding: var(--gap-8, 5.564px) var(--gap-16, 11.128px);
+        justify-content: center;
+        align-items: flex-start;
+        gap: var(--gap-8, 5.564px);
+        flex-shrink: 0;
+        border-radius: var(--corner-radius-12, 8.346px);
+        background: rgba(69, 177, 255, 0.84);
+        text-align:center;
+        align-items:center;
+        font-weight:bold;
+    }
+
+    .newchat{
+        display: flex;
+        padding: 8px 8px 4px 4px;
+        align-items: center;
+        gap: 8.4px;
+        align-self: stretch;
+        width:180px;
+        height:auto;
+        margin:10px 0 0 0;
+
+        .plus{
+            width: 10px;
+            height: 10px;
+        }
+
+        .chatimg{
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .separator{
+        width: auto;
+        background: #B9DFFB;
+        margin-top:10px;
+        height:1px;
+    }
+
+}
+
+.chat{
+    background: white;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex: auto;
+    box-sizing:border-box;
+
+    .question {
+        width: auto;
+        flex-direction: column;
+        height: 100%;
+        display: flex;
+        flex: 4;
+        padding:20px;
+        box-sizing:border-box;
+        margin-top:15px;
+        
+        .input1 {
+            background: white;
+            width: 100%;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            box-sizing:border-box;
+            
+
+            .input1name{
+                margin-bottom:10px;
+                margin-left:7px;
+                font-weight:bold;
+            }
+
+            .input1_text{
+                height:100%;
+                width:100%;
+                background: rgba(69, 222, 255, 0.10);
+                border-radius: 10px;
+                padding:10px;
+                box-sizing:border-box;
+
+            }
+        }
+        
+        .input2 {
+            background: white;
+            width: 100%;
+            border-radius: 20px;
+            margin: 15px 0;
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+
+            .input2name{
+                margin-bottom:10px;
+                margin-top:10px;
+                margin-left:7px;
+                font-weight:bold;
+            }
+
+
+            .input2_text{
+                height:100%;
+                width:100%;
+                background: rgba(69, 222, 255, 0.10);
+                border-radius: 10px;
+                padding:10px;
+                box-sizing:border-box;
+
+            }
+        }
+        
+        .input3 {
+            background: white;
+            width: 100%;
+            border-radius: 20px;
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            margin-bottom:10px;
+
+            .input3name{
+                margin-bottom:10px;
+                margin-top:10px;
+                margin-left:7px;
+                font-weight:bold;
+
+            }
+
+            .input3_text{
+                height:100%;
+                background: rgba(69, 222, 255, 0.10);
+                width:100%;
+                border-radius: 10px;
+                padding:10px;
+                box-sizing:border-box;
+
+            }
+        }
+    }
+
+    .answer{
+        display:flex;
+        flex: 5;
+        flex-direction: column;
+        height: 100%;
+        padding:20px 20px 0px 20px;
+        box-sizing:border-box;
+
+        .answerlist{
+            background: white;
+            height: 100%;
+            border: 2px solid #B9DFFB;
+            border-radius: 10px;
+            padding:10px;
+            box-sizing:border-box;
+            overflow: auto;
+        }
+    }
+
+    .separator2{
+        height: auto;
+        background: #B9DFFB;
+        margin:0;
+        width:2px;
+    }
+
+}
+
+.send{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center; /* 가로 - 중앙으로 */
+    justify-content: center; /* 세로 - 상단으로 */
+    background: rgba(69, 177, 255, 0.84);
+    padding:10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size:20px;
+    font-weight:bold;
+
+    .send_img{
+        width:25px;
+        height:23px;
+        margin-left:15px;
+    }
+}
+
+.resetbutton{
+    background: rgba(69, 177, 255, 0.84);
+    padding: 10px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center; /* 가로 - 중앙으로 */
+    justify-content: flex-end; 
+    width:fit-content;
+    margin-bottom:10px;
+    border-radius: 7px;
+    margin-left: auto;
+    font-weight:bold;
+}
+
+/* MainPage.scss */
+
+  
+  .side-menu {
+    top: 0;
+    width: 300px;
+    height: auto;
+    transition: right 0.3s ease; /* 오른쪽 위치 변경 시 애니메이션 적용 */
+    margin-bottom:15px;
+  }
+  
+  .side-menu.visible {
+
+  }
+  
+.guideline{
+    display: flex;
+        width: 180px;
+        height: 33px;
+        padding: var(--gap-8, 5.564px) var(--gap-16, 11.128px);
+        justify-content: center;
+        align-items: flex-start;
+        gap: var(--gap-8, 5.564px);
+        flex-shrink: 0;
+        border-radius: var(--corner-radius-12, 8.346px);
+        background: rgba(69, 177, 255, 0.84);
+        text-align:center;
+        align-items:center;
+        font-weight:bold;
+        margin-bottom:15px;
+}

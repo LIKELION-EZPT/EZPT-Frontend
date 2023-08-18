@@ -1,24 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+//import './index.scss';
 import reportWebVitals from './reportWebVitals';
-<<<<<<< HEAD
-import { BrowserRouter } from 'react-router-dom';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-=======
-import ChatbotApp from './Mainpage';
+//import ChatbotApp from './Mainpage';
+import  MainPage  from './MainPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ChatbotApp />
+    <MainPage />
   </React.StrictMode>
->>>>>>> 15bd038a5fedebe8530ff881d081d9e485932f18
 );
 
 // If you want to start measuring performance in your app, pass a function
