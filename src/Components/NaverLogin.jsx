@@ -7,7 +7,7 @@ export const NaverLogin = ({ setGetToken, setUserInfo }) => {
     const navigate = useNavigate();
 	const { naver } = window
 	const NAVER_CLIENT_ID = process.env.REACT_APP_NAVER_CLIENT_ID
-	const NAVER_CALLBACK_URL = process.env.REACT_APP_NAVER_CALLBACK_URL
+	const NAVER_CALLBACK_URL = "http://118.67.133.132:3000/main"
 
 	const initializeNaverLogin = () => {
 		const naverLogin = new naver.LoginWithNaverId({
